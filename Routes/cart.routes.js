@@ -19,4 +19,6 @@ CartRouter.get("/getaddress", cart_controller.GetAddress);
 
 CartRouter.get("/order", cart_controller.placeOrder);
 
+CartRouter.get("/getallorders", cart_controller.GetAllOrders);
+
 module.exports = CartRouter;
