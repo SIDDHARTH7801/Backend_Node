@@ -40,6 +40,15 @@ const orderSchema = new mongoose.Schema({
     }]
 });
 
+const getAllOrders = async () => {
+    try {
+      const orders = await OrderModel.find();
+      return orders;
+    } catch (error) {
+      throw new Error(error.message);
+    }
+  };
+
 const OrderModel = mongoose.model('order', orderSchema);
 
-module.exports = OrderModel;
+module.exports = { OrderModel, getAllOrders };

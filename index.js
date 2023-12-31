@@ -6,6 +6,7 @@ const UserRouter = require("./Routes/user.routes");
 const CartRouter = require("./Routes/cart.routes");
 const authentication = require("./Middleware/authentication.mw");
 const ProductRouter = require("./Routes/product.routes");
+const OrderRouter = require("./Routes/order.routes");
 const adminAuthentication = require("./Middleware/adminAuthentication.md");
 require("dotenv").config();
 
@@ -18,6 +19,8 @@ app.use("/user", UserRouter);
 app.use("/product", adminAuthentication, ProductRouter);
 
 app.use("/cart", authentication, CartRouter);
+
+app.use("/order", OrderRouter);
 
 app.get("*", (req, res) => {
     res.status(404).json("not found")

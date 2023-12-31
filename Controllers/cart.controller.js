@@ -2,17 +2,6 @@ require("dotenv").config();
 const OrderModel = require("../Models/order.model");
 const { CartModel, AddressModel } = require("../Models/user.model")
 
-//Get All Orders 
-async function GetAllOrders(req, res) {
-    try {
-        const allOrders = await OrderModel.find();
-        res.status(200).send({ message: "All orders fetched successfully", orders: allOrders });
-    } catch (error) {
-        console.log(error);
-        res.status(500).send({ message: "Internal Server Error" });
-    }
-}
-
 // calculating total cart price
 const cartTotal = (products) => {
     let total = 0;
@@ -152,6 +141,5 @@ module.exports = {
     UpdateCart,
     placeOrder,
     AddAddress,
-    GetAddress,
-    GetAllOrders
+    GetAddress
 }
